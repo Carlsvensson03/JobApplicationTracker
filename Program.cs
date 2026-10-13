@@ -28,7 +28,7 @@ class program
             System.Console.WriteLine(" --- Välkomen till Jobbanöknings programmet --- ");
             Console.ResetColor();
 
-            
+
             System.Console.WriteLine("1. Lägg till ansökan");
             System.Console.WriteLine("2. Visa alla ansökningar");
             System.Console.WriteLine("3. Filtrera ansökningar efter status");
@@ -51,6 +51,7 @@ class program
                 break;
 
                 case "3":
+                    manager.ShowByStatus();
                 break;
 
                 case "4":

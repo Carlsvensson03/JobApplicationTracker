@@ -1,5 +1,6 @@
 using System;
 using System.Net;
+using System.Linq;
 
 
 /* 🔹 Klass: JobManager
@@ -111,6 +112,55 @@ public class JobManager
         Applications.RemoveAt(index);
         System.Console.WriteLine("Ansökan togs bort");
     }
-
+    public void ShowByStatus()
+    {
+        //LINQ som skapa lista för dem som ha intervju, skriver sen ut dem med färg
+        // Application.Where kolla i huvud listan efter dem med en viss status
+        var interviews = Applications.Where(application => application.Status == Status.Interview).ToList();
+        if (interviews.Count > 0)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            System.Console.WriteLine("--- Intervjuer ---");
+            foreach(var application in interviews)
+            {
+                System.Console.WriteLine($"{application.CompanyName} - {application.PositionTitle}");
+            }
+            Console.ResetColor();
+        }
+        var Offer = Applications.Where(application => application.Status == Status.Offer).ToList();
+        if (Offer.Count > 0)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            System.Console.WriteLine("--- Erbjudanden ---");
+            foreach(var application in Offer)
+            {
+                System.Console.WriteLine($"{application.CompanyName} - {application.PositionTitle}");
+            }
+            Console.ResetColor();
+        }
+        var Applied = Applications.Where(application => application.Status == Status.Applied).ToList();
+        if (Applied.Count > 0)
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            System.Console.WriteLine("--- Sökt ---");
+            foreach(var application in Applied)
+            {
+                System.Console.WriteLine($"{application.CompanyName} - {application.PositionTitle}");
+            }
+            Console.ResetColor();
+        }
+        var Rejected = Applications.Where(application => application.Status == Status.Rejected).ToList();
+        if (Rejected.Count > 0)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            System.Console.WriteLine("--- Avslag ---");
+            foreach(var application in Rejected)
+            {
+                System.Console.WriteLine($"{application.CompanyName} - {application.PositionTitle}");
+            }
+            Console.ResetColor();
+        }
+        
+    }
 
 }
