@@ -50,6 +50,12 @@ public class JobManager
     }
     public void UpdateStatus()
     {
+        if(Applications.Count == 0)
+        {
+            System.Console.WriteLine("Det finns inga ansökningar");
+            return;
+        }
+
         for (int i = 0; i < Applications.Count; i ++)
         {
             //[i] så man vet var i listan den ska kolla, skriver ut alla med index nummret.
@@ -86,9 +92,24 @@ public class JobManager
             return;
         }
     }
-    public void ShowByStatus()
+    public void DeleteApplication()
     {
+        //Använder samma princip som Uppdatestatus metoden
+        if(Applications.Count == 0)
+        {
+            System.Console.WriteLine("Det finns inga ansökningar");
+            return;
+        }
         
+        for (int i = 0; i < Applications.Count; i ++)
+        {
+            System.Console.WriteLine($"{i}. {Applications[i].CompanyName} - {Applications[i].PositionTitle} - {Applications[i].Status} ");
+        }
+        System.Console.WriteLine("Vilken ansökan vill du ta bort? Ange siffran!!"); 
+        int index = int.Parse(Console.ReadLine()!); //Få fram index postion 
+
+        Applications.RemoveAt(index);
+        System.Console.WriteLine("Ansökan togs bort");
     }
 
 
