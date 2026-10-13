@@ -2,20 +2,6 @@ using System;
 using System.Net;
 using System.Linq;
 
-
-/* 🔹 Klass: JobManager
-
-Attributer :
-Applications | List<JobApplication> - Samling av alla ansökningar
-
-Metoder:
-AddJob() – lägger till en ny ansökan
-UpdateStatus() – ändrar status på en befintlig ansökan
-ShowAll() – visar alla ansökningar
-ShowByStatus() – filtrerar med LINQ efter status (VG del)
-ShowStatistics() – visar statistik med LINQ (Count, Average, OrderBy, Where) (VG del)
- */
-
 public class JobManager
 {
     public List<JobApplication> Applications = new List<JobApplication>();
@@ -160,6 +146,18 @@ public class JobManager
             }
             Console.ResetColor();
         }
+        
+    }
+    public void OrederbyDate()
+    {
+        var ordered = Applications.OrderBy(application => application.Applicationdate);
+        foreach(var application in ordered)
+        {
+            System.Console.WriteLine($"{application.CompanyName}, {application.PositionTitle}, {application.Applicationdate}");
+        }
+    }
+    public void ShowStatistc()
+    {
         
     }
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\NBI\\kurs_2\\JobbApplicationTracker\\JobApplicationTracker\\JobApplicationTracker.csproj": {}
+    "C:\\NBI\\kurs_2\\JobbApplicationTracker\\JobApplicationTracker\\JobApplicationTracker.csproj": {}
   },
   "projects": {
-    "c:\\NBI\\kurs_2\\JobbApplicationTracker\\JobApplicationTracker\\JobApplicationTracker.csproj": {
+    "C:\\NBI\\kurs_2\\JobbApplicationTracker\\JobApplicationTracker\\JobApplicationTracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\NBI\\kurs_2\\JobbApplicationTracker\\JobApplicationTracker\\JobApplicationTracker.csproj",
+        "projectUniqueName": "C:\\NBI\\kurs_2\\JobbApplicationTracker\\JobApplicationTracker\\JobApplicationTracker.csproj",
         "projectName": "JobApplicationTracker",
-        "projectPath": "c:\\NBI\\kurs_2\\JobbApplicationTracker\\JobApplicationTracker\\JobApplicationTracker.csproj",
+        "projectPath": "C:\\NBI\\kurs_2\\JobbApplicationTracker\\JobApplicationTracker\\JobApplicationTracker.csproj",
         "packagesPath": "C:\\Users\\carls\\.nuget\\packages\\",
-        "outputPath": "c:\\NBI\\kurs_2\\JobbApplicationTracker\\JobApplicationTracker\\obj\\",
+        "outputPath": "C:\\NBI\\kurs_2\\JobbApplicationTracker\\JobApplicationTracker\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

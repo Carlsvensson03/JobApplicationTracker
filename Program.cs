@@ -16,7 +16,7 @@ Genomsnittlig svarstid (VG del)
 🗑️ Ta bort en ansökan
 💾 Avsluta programmet */
 
-class program
+class Program
 {
     static void Main(string[] args)
     {
