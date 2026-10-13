@@ -158,7 +158,41 @@ public class JobManager
     }
     public void ShowStatistc()
     {
+        int Antal = Applications.Count();
+        System.Console.WriteLine($"Totalt: {Antal} Ansökningar");
         
+        //LINQ som kollar i varje obejekt i huvudlistan efter hur många som har en viss Status.
+        var antalinterviews = Applications.Count(application => application.Status == Status.Interview);
+        var antalOffer = Applications.Count(application => application.Status == Status.Offer);
+        var antalRejected = Applications.Count(application => application.Status == Status.Rejected);
+        var antalApplied = Applications.Count(application => application.Status == Status.Applied);
+
+        System.Console.WriteLine($"Intervjuer: {antalinterviews}");
+        System.Console.WriteLine($"Erbjudanden: {antalOffer}");
+        System.Console.WriteLine($"Avslag: {antalRejected}");
+        System.Console.WriteLine($"Sökta: {antalApplied}");
+
+
+        //Skapa ny lista, gå igenom den gammla kolla så obejektet ha fåt nåt svar
+        var applicationanswer = Applications.Where(application => application.Responsedate != null).ToList();
+
+        if (applicationanswer.Count > 0)
+        {
+            //Gå igenom applicationanswer, kolla varje application svarsdatum - ansökningsdatum, totaldays för få dagar
+            var averageResponseTime = applicationanswer.Average(a => (a.Responsedate - a.Applicationdate)?.TotalDays);
+            System.Console.WriteLine($"Genomsnittlig svarstid: {averageResponseTime} dagar");
+        }
+        else
+        {
+            System.Console.WriteLine("Det finns inga svar regristrerade");
+        }
+
+
+
+
+
+
+
     }
 
 }

@@ -55,9 +55,11 @@ class Program
                 break;
 
                 case "4":
+                    manager.OrederbyDate();
                 break;
 
                 case "5":
+                    manager.ShowStatistc();
                 break;
 
                 case "6":
