@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 
 /* Programmet ska innehålla minst följande alternativ:
@@ -23,6 +24,11 @@ class program
         bool run = true;
         while (run)
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            System.Console.WriteLine(" --- Välkomen till Jobbanöknings programmet --- ");
+            Console.ResetColor();
+
+            
             System.Console.WriteLine("1. Lägg till ansökan");
             System.Console.WriteLine("2. Visa alla ansökningar");
             System.Console.WriteLine("3. Filtrera ansökningar efter status");
@@ -58,6 +64,7 @@ class program
                 break;
 
                 case "7":
+                    manager.DeleteApplication();
                 break;
 
                 case "8":
