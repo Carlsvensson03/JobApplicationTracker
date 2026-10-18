@@ -61,16 +61,19 @@ public class JobManager
         if (val == "1")
         {
             Applications[index].Status = Status.Interview;
+            Applications[index].Responsedate = DateTime.Now; // Det blir dagens datum 
             System.Console.WriteLine("Ändrade status till interview");
         }
         else if(val == "2")
         {
             Applications[index].Status = Status.Offer;
+            Applications[index].Responsedate = DateTime.Now;
             System.Console.WriteLine("Ändrade status till Offer");
         }
         else if(val == "3")
         {
             Applications[index].Status = Status.Rejected;
+            Applications[index].Responsedate = DateTime.Now;
             System.Console.WriteLine("Ändrade status till rejected :(");
         }
         else
@@ -186,12 +189,6 @@ public class JobManager
         {
             System.Console.WriteLine("Det finns inga svar regristrerade");
         }
-
-
-
-
-
-
 
     }
 
