@@ -1,21 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-
-/* Programmet ska innehålla minst följande alternativ:
-➕ Lägg till ny ansökan
-📋 Visa alla ansökningar
-🔍 Filtrera ansökningar efter status (LINQ) (VG del)
-📅 Sortera ansökningar efter datum (OrderBy) (VG del)
-📊 Visa statistik:
-Totalt antal ansökningar
-Antal per status (VG del)
-Genomsnittlig svarstid (VG del)
-
-✏️ Uppdatera status på en ansökan
-🗑️ Ta bort en ansökan
-💾 Avsluta programmet */
-
 class Program
 {
     static void Main(string[] args)
