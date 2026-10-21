@@ -4,7 +4,7 @@ using System.Linq;
 
 public class JobManager
 {
-    public List<JobApplication> Applications = new List<JobApplication>();
+    public List<JobApplication> Applications = new List<JobApplication>(); // skapa liasta som innehåller jobapplication
 
     public void AddJob()
     {
@@ -43,7 +43,7 @@ public class JobManager
             return;
         }
 
-        for (int i = 0; i < Applications.Count; i ++)
+        for (int i = 0; i < Applications.Count; i ++)// starta på 0, går så länge i är mindre en antal application
         {
             //[i] så man vet var i listan den ska kolla, skriver ut alla med index nummret.
             System.Console.WriteLine($"{i}. {Applications[i].CompanyName} - {Applications[i].PositionTitle} - {Applications[i].Status} ");
@@ -105,7 +105,7 @@ public class JobManager
     {
         //LINQ som skapa lista för dem som ha intervju, skriver sen ut dem med färg
         // Application.Where kolla i huvud listan efter dem med en viss status
-        var interviews = Applications.Where(application => application.Status == Status.Interview).ToList();
+        List<JobApplication> interviews = Applications.Where(application => application.Status == Status.Interview).ToList();
         if (interviews.Count > 0)
         {
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -116,7 +116,7 @@ public class JobManager
             }
             Console.ResetColor();
         }
-        var Offer = Applications.Where(application => application.Status == Status.Offer).ToList();
+        List<JobApplication> Offer = Applications.Where(application => application.Status == Status.Offer).ToList();
         if (Offer.Count > 0)
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -127,7 +127,7 @@ public class JobManager
             }
             Console.ResetColor();
         }
-        var Applied = Applications.Where(application => application.Status == Status.Applied).ToList();
+        List<JobApplication> Applied = Applications.Where(application => application.Status == Status.Applied).ToList();
         if (Applied.Count > 0)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -138,7 +138,7 @@ public class JobManager
             }
             Console.ResetColor();
         }
-        var Rejected = Applications.Where(application => application.Status == Status.Rejected).ToList();
+        List<JobApplication> Rejected = Applications.Where(application => application.Status == Status.Rejected).ToList();
         if (Rejected.Count > 0)
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -153,7 +153,7 @@ public class JobManager
     }
     public void OrederbyDate()
     {
-        var ordered = Applications.OrderBy(application => application.Applicationdate);
+        IEnumerable<JobApplication> ordered = Applications.OrderBy(application => application.Applicationdate);
         foreach(var application in ordered)
         {
             System.Console.WriteLine($"{application.CompanyName}, {application.PositionTitle}, {application.Applicationdate}");
@@ -165,10 +165,10 @@ public class JobManager
         System.Console.WriteLine($"Totalt: {Antal} Ansökningar");
         
         //LINQ som kollar i varje obejekt i huvudlistan efter hur många som har en viss Status.
-        var antalinterviews = Applications.Count(application => application.Status == Status.Interview);
-        var antalOffer = Applications.Count(application => application.Status == Status.Offer);
-        var antalRejected = Applications.Count(application => application.Status == Status.Rejected);
-        var antalApplied = Applications.Count(application => application.Status == Status.Applied);
+        int antalinterviews = Applications.Count(application => application.Status == Status.Interview);
+        int antalOffer = Applications.Count(application => application.Status == Status.Offer);
+        int antalRejected = Applications.Count(application => application.Status == Status.Rejected);
+        int antalApplied = Applications.Count(application => application.Status == Status.Applied);
 
         System.Console.WriteLine($"Intervjuer: {antalinterviews}");
         System.Console.WriteLine($"Erbjudanden: {antalOffer}");
@@ -177,7 +177,7 @@ public class JobManager
 
 
         //Skapa ny lista, gå igenom den gammla kolla så obejektet ha fåt nåt svar
-        var applicationanswer = Applications.Where(application => application.Responsedate != null).ToList();
+        List<JobApplication> applicationanswer = Applications.Where(application => application.Responsedate != null).ToList();
 
         if (applicationanswer.Count > 0)
         {
